@@ -34,14 +34,14 @@ Let>k=0
 While>k<466
   Let>k=k+1
   
-  // copy Opensea asset url from sheet
+  // copy OpenSea asset url from sheet
   Wait>0.4
   GoSub>Copy
   
-  // switch to Opensea
+  // switch to OpenSea
   GoSub>SwitchProgram
 
-  // navigate to Opensea create item page
+  // navigate to OpenSea asset url
   Press LCTRL
   Wait>0.1
   Send>l
@@ -59,7 +59,7 @@ While>k<466
   Wait>0.1
   GoSub>Copy
   
-  // switch to Opensea
+  // switch to OpenSea
   GoSub>SwitchProgram
   
   // click transfer
