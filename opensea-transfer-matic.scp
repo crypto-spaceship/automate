@@ -1,0 +1,101 @@
+// 20210930
+
+Let>WW_TIMEOUT=10
+CapsOff
+
+SRT>SwitchProgram
+  Press LALT
+  Wait>0.2
+  Press Tab
+  Wait>0.2
+  Release LALT
+  Wait>1
+END>SwitchProgram
+
+SRT>Copy
+  Press LCTRL
+  Wait>0.1
+  Send>c
+  Wait>0.1
+  Release LCTRL
+  Wait>0.3
+END>Copy
+
+SRT>Paste
+  Press LCTRL
+  Wait>0.1
+  Send>v
+  Wait>0.1
+  Release LCTRL
+  Wait>0.3
+END>Paste
+
+Let>k=0
+While>k<466
+  Let>k=k+1
+  
+  // copy Opensea asset url from sheet
+  Wait>0.4
+  GoSub>Copy
+  
+  // switch to Opensea
+  GoSub>SwitchProgram
+
+  // navigate to Opensea create item page
+  Press LCTRL
+  Wait>0.1
+  Send>l
+  Wait>0.1
+  Release LCTRL
+  Wait>0.2
+  GoSub>Paste
+  Wait>0.1
+  Press Enter
+  Wait>4
+  
+  // switch to sheet then copy address
+  GoSub>SwitchProgram
+  Press Right
+  Wait>0.1
+  GoSub>Copy
+  
+  // switch to Opensea
+  GoSub>SwitchProgram
+  
+  // click transfer
+  Press Tab * 8
+  Wait>0.2
+  Press Enter
+  Wait>2
+  
+  // paste the address
+  Press Tab * 1
+  Wait>0.2
+  GoSub>Paste
+  Press Tab * 1
+  Press Enter
+  Wait>2
+  
+  // confirm
+  Press Tab * 1
+  Wait>0.2
+  Press Enter
+  Wait>4
+  
+  // sign MetaMask
+  Press Tab * 2
+  Wait>0.1
+  Press Enter
+  Wait>2
+  
+  // back to sheet
+  GoSub>SwitchProgram
+  Press Right
+  Wait>0.1
+  Send>x
+  Wait>0.1
+  Press Down
+  Wait>0.1
+  Press Home
+  Wait>1
+EndWhile
