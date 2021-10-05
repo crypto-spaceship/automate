@@ -86,7 +86,10 @@ While>k<466
   Press Tab * 2
   Wait>0.1
   Press Enter
-  Wait>2
+  // night
+  // Wait>3
+  // day
+  Wait>18
   
   // back to sheet
   GoSub>SwitchProgram
