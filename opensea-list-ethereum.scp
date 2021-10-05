@@ -1,0 +1,95 @@
+// 20211002
+
+Let>WW_TIMEOUT=10
+CapsOff
+
+SRT>SwitchProgram
+  Press LALT
+  Wait>0.2
+  Press Tab
+  Wait>0.2
+  Release LALT
+  Wait>1
+END>SwitchProgram
+
+SRT>Copy
+  Press LCTRL
+  Wait>0.1
+  Send>c
+  Wait>0.1
+  Release LCTRL
+  Wait>0.3
+END>Copy
+
+SRT>Paste
+  Press LCTRL
+  Wait>0.1
+  Send>v
+  Wait>0.1
+  Release LCTRL
+  Wait>0.3
+END>Paste
+
+Let>k=0
+While>k<2173
+  Let>k=k+1
+
+  // copy OpenSea asset url from sheet
+  GoSub>Copy
+  
+  // switch to OpenSea
+  GoSub>SwitchProgram
+  
+  // navigate to OpenSea asset url
+  Press LCTRL
+  Wait>0.1
+  Send>l
+  Wait>0.1
+  Release LCTRL
+  Wait>0.2
+  GoSub>Paste
+  Wait>0.1
+  Press Enter
+  Wait>4.5
+  
+  // click Sell
+  Press Tab * 5
+  Wait>0.1
+  Press Enter
+  Wait>2
+  
+  // type amount
+  Send>0.01
+  Wait>0.5
+  Press Tab * 2
+  // Press Tab * 22
+  Wait>0.1
+  Press Enter
+  // Wait>2
+  Wait>12
+  
+  /*
+  // complete listing
+  Press Tab * 2
+  Wait>0.1
+  Press Enter
+  Wait>2
+  */
+  
+  // sign MetaMask
+  Press Tab * 2
+  Wait>0.1
+  Press Enter
+  Wait>6
+
+  // back to sheet
+  GoSub>SwitchProgram
+  Press Right
+  Wait>0.1
+  Send>x
+  Wait>0.1
+  Press Down
+  Wait>0.1
+  Press Left
+  Wait>1
+EndWhile
